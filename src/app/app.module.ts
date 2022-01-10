@@ -8,6 +8,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { PostPageComponent } from './components/post-page/post-page.component';
 import { PostComponent } from './shared/components/post/post.component';
 import { AdminModule } from './admin/admin.module';
+import { SharedNodule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AdminModule } from './admin/admin.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedNodule,
     AdminModule
   ],
   providers: [],
