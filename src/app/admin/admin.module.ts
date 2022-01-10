@@ -11,6 +11,7 @@ import { EditPageComponent } from './edit-page/edit-page.component';
 import { LoginPageComponent } from "./login-page/login-page.component";
 import { AuthService } from "./shared/services/auth-service.service";
 import { SharedNodule } from "../shared/shared.module";
+import { AuthGuard } from "./shared/services/auth.guard";
 
 @NgModule({
     imports: [
@@ -35,14 +36,17 @@ import { SharedNodule } from "../shared/shared.module";
                     {
                         path: 'dashboard',
                         component: DashboardPageComponent,
+                        canActivate: [AuthGuard],
                     },
                     {
                         path: 'create',
                         component: CreatePageComponent,
+                        canActivate: [AuthGuard],
                     },
                     {
                         path: 'post/:id/edit',
                         component: EditPageComponent,
+                        canActivate: [AuthGuard]
                     }
                 ]
             }
@@ -60,6 +64,7 @@ import { SharedNodule } from "../shared/shared.module";
     ],
     providers: [
         AuthService,
+        AuthGuard,
     ]
 })
 
