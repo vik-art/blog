@@ -11,6 +11,7 @@
     </div>
     <div class="form-control">
         <label>Post Text</label>
+        <quill-editor formControlName="text"></quill-editor>
     </div>
     <div class="form-control" [ngClass]="{invalid:form.get('author')?.touched && form.get('author')?.invalid }">
         <label for="author">Post Author</label>
