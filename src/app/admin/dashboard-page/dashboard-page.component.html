@@ -18,8 +18,8 @@
                 <td>{{post.date | date: 'medium'}}</td>
                 <td>
                     <button class="btn btn-white open-btn"
-                        routerLink="['/admin', 'post', post.id, 'edit']">Open</button>
-                    <button class="btn btn-danger" (click)="removePost(post.id)">Detele</button>
+                        [routerLink]="['/admin', 'post', post.id, 'edit']">Open</button>
+                    <button class="btn btn-danger" (click)="removePost(post.id!)">Detele</button>
                 </td>
             </tr>
         </tbody>

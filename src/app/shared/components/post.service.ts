@@ -36,4 +36,20 @@ export class PostService {
             })
         )
     }
+    remove(id: string): Observable<void> {
+        return this.http.delete<void>(`${environment.fbDBUrl}/posts/${id}.json`)
+    }
+    getById(id: string): Observable<any> {
+        return this.http.get(`${environment.fbDBUrl}/posts/${id}.json`)
+        .pipe(map(post => {
+                return {
+                    ...post,
+                    id,
+                    date: new Date()
+                }
+        }))
+    }
+    update(post: Post): Observable<Post> {
+        return this.http.patch<Post>(`${environment.fbDBUrl}/posts/${post.id}.json`, post)
+    }
 }
