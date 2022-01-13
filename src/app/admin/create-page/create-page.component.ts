@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Post } from 'src/app/shared/components/interfaces';
 import { PostService } from 'src/app/shared/components/post.service';
+import { AlertService } from '../shared/services/alert-service.service';
 
 @Component({
   selector: 'app-create-page',
@@ -11,7 +12,10 @@ import { PostService } from 'src/app/shared/components/post.service';
 export class CreatePageComponent implements OnInit {
   form!: FormGroup;
 
-  constructor(private postService: PostService) { }
+  constructor(
+    private postService: PostService,
+  private alert: AlertService
+  ) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -36,8 +40,8 @@ export class CreatePageComponent implements OnInit {
       author: this.form.value.author,
       date: new Date()
     }
-    console.log(post)
     this.postService.create(post).subscribe(() => {
+      this.alert.success('You have created a new post!')
       this.form.reset()
     })
   }
