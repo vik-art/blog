@@ -21,7 +21,7 @@ const routes: Routes = [
       {
         path: 'post/:id',
         component: PostPageComponent,
-      }
+      },
     ]
   },
   {

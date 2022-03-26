@@ -19,16 +19,14 @@
 body {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
-  line-height: 1.6;
   background-color: #fff;
   color: #333;
 }
 
 a {
-  color: var(--primary-color);
+  color: #fff;
   cursor: pointer;
   text-decoration: none;
-
   &:hover {
     color: #666;
   }
@@ -264,7 +262,7 @@ table th {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.7rem 2rem;
+  padding: 0.7rem 4rem;
   z-index: 1;
   width: 100%;
   opacity: 0.9;
@@ -272,7 +270,6 @@ table th {
 
   &.main {
     justify-content: center;
-    border-bottom: 1px solid var(--dark-color);
   }
 
   ul {
@@ -283,12 +280,6 @@ table th {
     color: var(--dark-color);
     font-weight: bold;
     cursor: default;
-  }
-
-  a {
-    color: #fff;
-    padding: 0.45rem;
-    margin: 0 0.25rem;
 
     &:hover {
       color: var(--light-color);
