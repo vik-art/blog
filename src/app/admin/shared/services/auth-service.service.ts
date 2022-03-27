@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { FbAuthResponse, User } from 'src/app/shared/components/interfaces';
 import { catchError, Observable, Subject, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -11,6 +11,7 @@ export class AuthService {
   public error$: Subject<string> = new Subject<string>()
 
   constructor(private http: HttpClient) { }
+
   get token(): string {
     const expDate = new Date(localStorage.getItem('fb-exp-date')!);
     if (new Date > expDate) {
@@ -20,13 +21,26 @@ export class AuthService {
     return localStorage.getItem('fb-token')!
   }
 
-  login(user: User): Observable<any> {
+  login(user: User): Observable<FbAuthResponse | null> {
     user.returnSecureToken = true;
-   return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`, user)
+    const params = new HttpParams()
+    .set('key', environment.apiKey)
+   return this.http.post<FbAuthResponse>(`${environment.fbUrl}:signInWithPassword`, user, {params: params})
      .pipe(
        tap(this.setToken),
        catchError(this.handleError.bind(this))
   )
+  }
+
+  singUp(user: User): Observable<FbAuthResponse | null> {
+    user.returnSecureToken = true;
+    const params = new HttpParams()
+      .set('key', environment.apiKey)
+    return this.http.post<FbAuthResponse>(`${environment.fbUrl}:signUp`, user, { params: params })
+      .pipe(
+        tap(this.setToken),
+        catchError(this.handleError.bind(this))
+    )
   }
 
   logout() {

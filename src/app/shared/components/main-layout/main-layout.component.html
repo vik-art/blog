@@ -1,5 +1,9 @@
 <nav class="navbar main">
-    <h1>Angular Blog</h1>
+    <h1 routerLink="/" class="title">Angular Blog</h1>
+    <div class="links-container">
+        <a routerLink="/singup" class="router-link">Sing Up</a>
+        <a routerLink="/admin" class="router-link">Log In</a>
+    </div>
 </nav>
 <div class="container">
     <router-outlet></router-outlet>

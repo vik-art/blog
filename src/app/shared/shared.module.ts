@@ -1,5 +1,6 @@
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { QuillModule } from "ngx-quill";
 
 @NgModule({
@@ -9,7 +10,9 @@ import { QuillModule } from "ngx-quill";
     ],
     exports: [
         HttpClientModule,
-        QuillModule
+        QuillModule,
+        FormsModule,
+        ReactiveFormsModule
     ]
 })
 

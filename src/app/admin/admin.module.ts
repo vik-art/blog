@@ -1,7 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 
 import { AdminLayoutComponent } from './shared/components/admin-layout/admin-layout.component';
@@ -15,13 +14,12 @@ import { AuthGuard } from "./shared/services/auth.guard";
 import { SearchPipe } from "./shared/pipes/search.pipe";
 import { AlertComponent } from './shared/components/alert/alert.component';
 import { AlertService } from "./shared/services/alert-service.service";
+import { SingupComponent } from "./shared/components/singup/singup.component";
 
 @NgModule({
     imports: [
         CommonModule,
         SharedNodule,
-        FormsModule,
-        ReactiveFormsModule,
         RouterModule.forChild([
             {
                 path: '', 
@@ -31,6 +29,10 @@ import { AlertService } from "./shared/services/alert-service.service";
                         path: '',
                         redirectTo: '/admin/login',
                         pathMatch: 'full',
+                    },
+                    {
+                        path: 'singup',
+                        component: SingupComponent,
                     },
                     {
                         path: 'login', 
@@ -64,6 +66,7 @@ import { AlertService } from "./shared/services/alert-service.service";
         CreatePageComponent,
         EditPageComponent,
         LoginPageComponent,
+        SingupComponent,
         SearchPipe,
         AlertComponent
     ],

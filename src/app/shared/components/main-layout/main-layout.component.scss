@@ -1,0 +1,19 @@
+.navbar {
+  align-items: center;
+  background-color: #dc3545;
+  color: #fff;
+  .title {
+    width: 50%;
+  }
+  .links-container {
+    flex-basis: 50%;
+    text-align: end;
+    .router-link {
+      font-size: 18px;
+      color: #fff;
+      &:first-child {
+        margin-right: 40px;
+      }
+    }
+  }
+}

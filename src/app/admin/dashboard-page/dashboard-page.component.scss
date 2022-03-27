@@ -1,7 +1,23 @@
+@import "../../../styles/components/variables.scss";
+
 .open-btn {
   margin-right: 10px;
 }
 th,
 td {
   text-align: center;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+table th {
+  background: $light-color;
 }
